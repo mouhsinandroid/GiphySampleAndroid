@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Giphy Sample Android</string>
+    <string name="search_gifs">Search Gifs</string>
+</resources>

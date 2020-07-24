@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="gif"
+            type="com.giphy.android.data.Gif" />
+
+        <variable
+            name="adapter"
+            type="com.giphy.android.ui.search.GifAdapter" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:layout_margin="8dp"
+        android:background="?attr/selectableItemBackground"
+        >
+
+                <ImageView
+                    android:id="@+id/img_gif_item"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:visibility="visible"
+                    app:imageUrl="@{gif.images.imageData.url}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

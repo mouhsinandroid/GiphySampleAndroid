@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="viewModelGif"
+            type="com.giphy.android.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.giphy.android.ui.main.MainFragment"
+        android:background="@color/gph_white"
+        android:id="@+id/container_full_screen"
+        >
+
+        <EditText
+            android:id="@+id/searchGifView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:afterTextChanged="@{(edtitable)->viewModelGif.getKeySearch(edtitable)}"
+            android:imeOptions="actionDone"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/search_gifs"
+            android:autofillHints="@string/search_gifs">
+
+        </EditText>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchGifView"
+            app:layout_constraintVertical_bias="1.0"
+            tools:context="com.giphy.android.ui.main.MainFragment">
+
+            <ImageView
+                android:id="@+id/img_gif"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:visibility="visible"
+                app:gifUrl="@{viewModelGif.urlGif.images.imageData.url}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/prb_loading"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/img_gif"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:goneIfNotNull="@{viewModelGif.urlGif.images.imageData.url}"
+                app:layout_constraintTop_toTopOf="@+id/img_gif" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
