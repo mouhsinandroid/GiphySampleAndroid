@@ -27,20 +27,17 @@ class MainViewModel : ViewModel() {
         getOneGifRandom()
     }
 
-    private fun getOneGifRandom() {
-
-        coroutineScope.launch {
-            coroutineScope.launch {
-                val getPropertiesDeferred = getGifApi().getOneGifRandomAsync(API_KEY)
-                try {
-                    val listResult = getPropertiesDeferred.await()
-                    _gif.value = listResult.data
-                    Timber.d("Success :: %s", _gif.toString())
-                } catch (e: Exception) {
-                    Timber.w("error :: %s", "Failure: ${e.message}")
-                }
-            }
-        }
+     fun getOneGifRandom() {
+         coroutineScope.launch {
+             val getGifDeferred = getGifApi().getOneGifRandomAsync(API_KEY)
+             try {
+                 val listResult = getGifDeferred.await()
+                 _gif.value = listResult.data
+                 Timber.d("Success :: %s", _gif.toString())
+             } catch (e: Exception) {
+                 Timber.w("error :: %s", "Failure: ${e.message}")
+             }
+         }
     }
 
     fun getKeySearch(s: CharSequence) {

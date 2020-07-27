@@ -31,16 +31,14 @@ class SearchViewModel: ViewModel() {
     private fun getGiftByKeyWord(keyword: MutableLiveData<String>) {
 
         coroutineScope.launch {
-            coroutineScope.launch {
-                val getPropertiesDeferred = GifCallApi.getGifApi().searchGifsByKeyWordAsync(API_KEY,keyword.value.toString())
-                try {
-                    val listResult = getPropertiesDeferred.await()
-                    _listGifsByKeyWord.value = listResult.data
-                    Timber.d("Success :: %s",_listGifsByKeyWord.toString())
+            val getListGifsDeferred = GifCallApi.getGifApi().searchGifsByKeyWordAsync(API_KEY,keyword.value.toString())
+            try {
+                val listResult = getListGifsDeferred.await()
+                _listGifsByKeyWord.value = listResult.data
+                Timber.d("Success :: %s",_listGifsByKeyWord.toString())
 
-                } catch (e: Exception) {
-                    Timber.w("error :: %s", "Failure: ${e.message}")
-                }
+            } catch (e: Exception) {
+                Timber.w("error :: %s", "Failure: ${e.message}")
             }
         }
     }
