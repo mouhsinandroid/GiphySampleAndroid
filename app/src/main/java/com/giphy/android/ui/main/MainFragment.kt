@@ -15,8 +15,8 @@ import com.giphy.android.util.Const.KEY_WORD
 import com.giphy.android.R
 import com.giphy.android.databinding.MainFragmentBinding
 import com.giphy.android.ui.search.SearchGifsFragment
-import com.giphy.android.util.Util.Companion.addFragment
-import com.giphy.android.util.Util.Companion.clearEdtInput
+import com.giphy.android.util.actionGo.addFragment
+import com.giphy.android.util.actionGo.clearEdtInput
 
 
 class MainFragment : Fragment() {

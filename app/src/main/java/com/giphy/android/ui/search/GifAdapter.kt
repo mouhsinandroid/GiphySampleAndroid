@@ -10,7 +10,7 @@ import com.giphy.android.databinding.ItemGridGifBinding
 import com.giphy.android.model.Gif
 import com.giphy.android.ui.fullscreen.GifFullscreenFragment
 import com.giphy.android.util.Const
-import com.giphy.android.util.Util
+import com.giphy.android.util.actionGo.addFragment
 
 
 class GifAdapter(private val items: List<Gif>) : RecyclerView.Adapter<GifAdapter.ViewHolder>() {
@@ -29,12 +29,16 @@ class GifAdapter(private val items: List<Gif>) : RecyclerView.Adapter<GifAdapter
         val bundle = Bundle()
         bundle.putString(Const.GIF_FULL_SCREEN_URL, item.images.imageData.url)
         fragment.arguments = bundle
-        Util.addFragment(
-            parent.context as AppCompatActivity,
-            fragment,
-            R.id.container_full_screen,
-            true
-        )
+
+
+        addFragment(parent.context  as AppCompatActivity, fragment, R.id.container_full_screen, true)
+
+//        Util.addFragment(
+//            parent.context as AppCompatActivity,
+//            fragment,
+//            R.id.container_full_screen,
+//            true
+//        )
     }
 
     override fun getItemCount(): Int = items.size
