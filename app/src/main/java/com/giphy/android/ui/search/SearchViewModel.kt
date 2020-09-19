@@ -3,7 +3,7 @@ package com.giphy.android.ui.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.giphy.android.data.Gif
+import com.giphy.android.model.Gif
 import com.giphy.android.util.Const.API_KEY
 import com.giphy.android.util.GifCallApi
 import kotlinx.coroutines.CoroutineScope

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="gif"
-            type="com.giphy.android.data.Gif" />
+            type="com.giphy.android.model.Gif" />
 
         <variable
             name="adapter"

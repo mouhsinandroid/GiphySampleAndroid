@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.giphy.android.data.Gif
+import com.giphy.android.model.Gif
 import com.giphy.android.ui.search.GifAdapter
 
 

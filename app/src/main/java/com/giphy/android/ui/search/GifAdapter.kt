@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.giphy.android.R
-import com.giphy.android.data.Gif
 import com.giphy.android.databinding.ItemGridGifBinding
+import com.giphy.android.model.Gif
 import com.giphy.android.ui.fullscreen.GifFullscreenFragment
 import com.giphy.android.util.Const
 import com.giphy.android.util.Util

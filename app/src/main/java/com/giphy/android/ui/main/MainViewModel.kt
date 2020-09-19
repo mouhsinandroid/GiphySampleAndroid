@@ -3,7 +3,7 @@ package com.giphy.android.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.giphy.android.data.Gif
+import com.giphy.android.model.Gif
 import com.giphy.android.util.Const.API_KEY
 import com.giphy.android.util.GifCallApi.getGifApi
 import kotlinx.coroutines.CoroutineScope
@@ -15,6 +15,7 @@ import timber.log.Timber
 class MainViewModel : ViewModel() {
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
+
 
     lateinit var keyWord:String
 
